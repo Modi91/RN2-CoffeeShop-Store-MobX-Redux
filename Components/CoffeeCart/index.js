@@ -1,27 +1,14 @@
 import React, { Component } from "react";
-
+import * as actionCreators from "../../store/actions/coffeeActions.js";
+import { connect } from "react-redux";
 // NativeBase Components
 import { Text, List, Button } from "native-base";
 // Component
 import CartItem from "./CartItem";
 
 class CoffeeCart extends Component {
-  state = {
-    items: [
-      {
-        drink: "Latte",
-        option: "Small",
-        quantity: 2
-      },
-      {
-        drink: "Espresso",
-        option: "Large",
-        quantity: 1
-      }
-    ]
-  };
   render() {
-    let items = this.state.items;
+    let items = this.props.items;
     let cartItems;
     if (items) {
       cartItems = items.map((item, index) => (
@@ -39,5 +26,9 @@ class CoffeeCart extends Component {
     );
   }
 }
-
-export default CoffeeCart;
+const mapStateToProps = state => {
+  return {
+    items: state.cart.items
+  };
+};
+export default connect(mapStateToProps)(CoffeeCart);

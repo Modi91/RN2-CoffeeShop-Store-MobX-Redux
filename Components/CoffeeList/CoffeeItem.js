@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ImageBackground, View } from "react-native";
-
+import * as actionCreators from "../../store/actions/coffeeActions.js";
+import { connect } from "react-redux";
 // NativeBase Components
 import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
 
@@ -38,4 +39,18 @@ class CoffeeItem extends Component {
   }
 }
 
-export default CoffeeItem;
+const mapStateToProps = state => {
+  return {
+    items: state.cart.items
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getCoffeeShops: () => dispatch(actionCreators.getCofeeShops())
+  };
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CoffeeItem);
