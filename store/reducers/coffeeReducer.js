@@ -2,10 +2,10 @@ import * as actionTypes from "../actions/types.js";
 
 const initialState = {
   coffeeShops: [],
-  loading: false
+  loading: true
 };
 
-const reducer = (state = initialState, action) => {
+const coffeeReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_COFFEESHOPS:
       return {
@@ -24,4 +24,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default coffeeReducer;

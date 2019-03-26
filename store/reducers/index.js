@@ -5,6 +5,6 @@ import cartReducer from "./cartReducer";
 import coffeeReducer from "./coffeeReducer";
 
 export default combineReducers({
-  cart: cartReducer,
-  coffee: coffeeReducer
+  cartReducer: cartReducer,
+  coffeeReducer: coffeeReducer
 });

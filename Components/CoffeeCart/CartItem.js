@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import * as actionCreators from "../../store/actions/coffeeActions.js";
-import { connect } from "react-redux";
 
 // NativeBase Components
 import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";

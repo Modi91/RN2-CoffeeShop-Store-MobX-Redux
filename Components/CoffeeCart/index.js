@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import * as actionCreators from "../../store/actions/coffeeActions.js";
 import { connect } from "react-redux";
 // NativeBase Components
 import { Text, List, Button } from "native-base";
@@ -28,7 +27,7 @@ class CoffeeCart extends Component {
 }
 const mapStateToProps = state => {
   return {
-    items: state.cart.items
+    items: state.cartReducer.items
   };
 };
 export default connect(mapStateToProps)(CoffeeCart);

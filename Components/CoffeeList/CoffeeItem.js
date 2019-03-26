@@ -17,7 +17,7 @@ class CoffeeItem extends Component {
     return (
       <ImageBackground source={coffeeShop.background} style={styles.background}>
         <View style={styles.overlay} />
-        <ListItem button onPress={this.handlePress} style={styles.listitem}>
+        <ListItem button style={styles.listitem}>
           <Card style={styles.transparent}>
             <CardItem style={styles.transparent}>
               <Left>
@@ -41,7 +41,7 @@ class CoffeeItem extends Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.cart.items
+    items: state.cartReducer.items
   };
 };
 

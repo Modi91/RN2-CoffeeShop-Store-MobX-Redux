@@ -13,31 +13,28 @@ import CoffeeList from "../CoffeeList";
 import CoffeeCart from "../CoffeeCart";
 import CoffeeDetail from "../CoffeeDetail";
 import Login from "../Login";
-
+import { getCofeeShops } from "../../store/actions/coffeeActions";
 class HomePage extends Component {
+  componentDidMount() {
+    this.props.getCoffeeShops();
+  }
   render() {
     return (
       <Container style={styles.transparent}>
         <View style={styles.overlay} />
         <Header style={styles.transparent} />
-        <CoffeeCart />
+        <CoffeeList />
       </Container>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    coffeeShop: state.coffee.coffeeShops
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
-    getCoffeeShops: () => dispatch(actionCreators.getCofeeShops())
+    getCoffeeShops: () => dispatch(getCofeeShops())
   };
 };
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(HomePage);
